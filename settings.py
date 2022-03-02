@@ -1,6 +1,13 @@
-import environ
-env = environ.Env()
+import os
 
-FROM_EMAIL = env("FROM_EMAIL")
-TO_EMAIL = env("TO_EMAIL")
-PASS_EMAIL = env("PASS_EMAIL")
+env = os.environ
+
+credencias = {
+	'login': env["LOGIN_EMAIL"],
+	'password': env["PASSWORD_EMAIL"],
+}
+
+server = {
+	'smtp' : 'smtp.gmail.com',
+	'port' : '587',
+}
