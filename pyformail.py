@@ -2,7 +2,7 @@ from flask import Flask, redirect, request
 import send_mail
 app = Flask(__name__)
 
-@app.route('/formulario/<string:to_email>', methods = ['POST', 'GET'])
+@app.route('/form', methods = ['POST', 'GET'])
 def form_email():
    if request.method == 'POST':
       nome = request.form['nome']
@@ -10,10 +10,11 @@ def form_email():
       e_mail = request.form['email']
       assunto = request.form['assunto']
       mensagem = request.form['mensagem']
+      to_mail = request.args.get('mail')
 
-      send_mail.send_email(to_email, nome, sobrenome, e_mail, assunto, mensagem)
+      send_mail.send_email(to_mail, nome, sobrenome, e_mail, assunto, mensagem)
 
-      return "<h1>Enviado</h1>"
+      return f"""<h1>Enviado</h1>"""
    else:
       return "<h1>O que faz por aqui forasteiro?</h1>"
 
