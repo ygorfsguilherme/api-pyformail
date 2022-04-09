@@ -1,4 +1,4 @@
-### O que pyformail?
+### O que é pyformail?
 É uma api para enviar formulário de contato para um email.
 
 ### Tecnologia utilizado
