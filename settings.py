@@ -7,6 +7,7 @@ credencias = {
     "password": env["PASSWORD_EMAIL"],
 }
 
+
 server = {
     "smtp": "smtp.zoho.com",
     "port": "587",
