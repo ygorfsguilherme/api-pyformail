@@ -7,8 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 
-@cross_origin
-@app.route("/form", methods=["POST", "GET"])
+@app.route("/form", methods=["POST", "GET", "OPTIONS"])
+# @crossdomain(origin="*", headers=["access-control-allow-origin", "Content-Type"])
 def form_email():
     if request.method == "POST":
         nome = request.get_json()["nome"]
