@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request
+from flask import Flask, jsonify, redirect, request
 from flask_cors import CORS, cross_origin
 import send_mail
 
@@ -11,17 +11,16 @@ CORS(app)
 @app.route("/form", methods=["POST", "GET"])
 def form_email():
     if request.method == "POST":
-        nome_email = request.form["nome"]
-        assunto = request.form["assunto"]
-        e_mail = request.form["email"]
-        mensagem = request.form["mensagem"]
-
+        nome = request.get_json()["nome"]
+        assunto = request.get_json()["assunto"]
+        e_mail = request.get_json()["email"]
+        mensagem = request.get_json()["mensagem"]
         to_mail = request.args.get("mail")
 
-        send_mail.send_email(to_mail, nome_email, e_mail, assunto, mensagem)
+        send_mail.send_email(to_mail, nome, e_mail, assunto, mensagem)
 
-        return f"<h1>{nome_email, to_mail}</h1>"
-    return f"<h1>Erro</h1>"
+        return jsonify("200")
+    return jsonify("404")
 
 
 if __name__ == "__main__":
