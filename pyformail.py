@@ -8,7 +8,7 @@ CORS(app)
 
 
 @app.route("/form", methods=["POST", "GET", "OPTIONS"])
-# @crossdomain(origin="*", headers=["access-control-allow-origin", "Content-Type"])
+@crossdomain(origin="*", headers=["access-control-allow-origin", "Content-Type"])
 def form_email():
     if request.method == "POST":
         nome = request.get_json()["nome"]
