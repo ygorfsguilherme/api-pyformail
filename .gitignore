@@ -131,3 +131,6 @@ dmypy.json
 # VScode folder config
 vscode
 .vscode
+
+# HTML test
+index.html
