@@ -3,7 +3,7 @@ import os
 env = os.environ
 
 credencias = {
-    "login": env["LOGIN_EMAIL"],
+    "user": env["LOGIN_EMAIL"],
     "password": env["PASSWORD_EMAIL"],
 }
 
